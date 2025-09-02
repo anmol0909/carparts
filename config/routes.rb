@@ -8,12 +8,9 @@ Rails.application.routes.draw do
   
   root "dashboard#index"
 
-  resources :dashboard, only: [:index] do
-    collection do
-      get :counts
-    end
-  end
-
+  resources :dashboard, only: [:index]
+  resources :items
+  resources :inventory,  only: [:index]
   resources :orders, only: [:index]
-  resources :members, only: [:index]
+  resources :members
 end
