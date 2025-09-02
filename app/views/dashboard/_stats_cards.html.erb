@@ -1,0 +1,18 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+  <div class="bg-blue-400 p-4 md:p-6 rounded-lg shadow-md">
+    <h3 class="text-xl md:text-3xl font-bold text-white"><%= @tracked_count %></h3>
+    <h3 class="text-xl mt-3 md:text-xl font-bold text-white">Items Tracked</h3>
+  </div>
+  <div class="bg-green-400 p-4 md:p-6 rounded-lg shadow-md">
+    <h3 class="text-xl md:text-3xl font-bold text-white"><%= @available_count %></h3>
+    <h3 class="text-xl mt-3 md:text-xl font-bold text-white">Items Available</h3>
+  </div>
+  <div class="bg-orange-400 p-4 md:p-6 rounded-lg shadow-md">
+    <h3 class="text-xl md:text-3xl font-bold text-white"><%= @unavailable_count %></h3>
+    <h3 class="text-xl mt-3 md:text-xl font-bold text-white">Items Unavailable</h3>
+  </div>
+  <div class="bg-yellow-400 p-4 md:p-6 rounded-lg shadow-md">
+    <h3 class="text-xl md:text-3xl font-bold text-white"><%= @expired_orders %></h3>
+    <h3 class="text-xl mt-3 md:text-xl font-bold text-white">Expired Orders</h3>
+  </div>
+</div>

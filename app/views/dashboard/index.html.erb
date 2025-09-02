@@ -8,102 +8,10 @@
 
     <main class="p-4 md:p-6">
       <!-- Stats Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-        <div class="bg-blue-400 p-4 md:p-6 rounded-lg shadow-md">
-          <h3 class="text-xl md:text-3xl font-bold text-white"><%= @tracked_count %></h3>
-          <h3 class="text-xl mt-3 md:text-xl font-bold text-white">Items Tracked</h3>
-        </div>
-        <div class="bg-green-400 p-4 md:p-6 rounded-lg shadow-md">
-          <h3 class="text-xl md:text-3xl font-bold text-white"><%= @available_count %></h3>
-          <h3 class="text-xl mt-3 md:text-xl font-bold text-white">Items Available</h3>
-        </div>
-        <div class="bg-orange-400 p-4 md:p-6 rounded-lg shadow-md">
-          <h3 class="text-xl md:text-3xl font-bold text-white"><%= @unavailable_count %></h3>
-          <h3 class="text-xl mt-3 md:text-xl font-bold text-white">Items Unavailable</h3>
-        </div>
-        <div class="bg-yellow-400 p-4 md:p-6 rounded-lg shadow-md">
-          <h3 class="text-xl md:text-3xl font-bold text-white"><%= @expired_orders %></h3>
-          <h3 class="text-xl mt-3 md:text-xl font-bold text-white">Expired Orders</h3>
-        </div>
-      </div>
+      <%= render "stats_cards" %>
 
       <!-- Table Section -->
-      <div class="mt-6 md:mt-10 bg-white rounded-lg shadow-md p-4 md:p-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          
-          <!-- Orders Table -->
-          <div class="overflow-x-auto">
-            <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-              Orders <span class="text-sm ml-1 text-gray-500">(<%= @orders.count %>)</span>
-            </h4>
-            <table class="w-full border border-gray-200 rounded-lg overflow-hidden text-sm md:text-base">
-              <thead class="bg-gray-50">
-                <tr>
-                  <th class="px-4 py-3 text-left text-gray-700 font-medium">Description</th>
-                  <th class="px-4 py-3 text-left text-gray-700 font-medium">Qty</th>
-                  <th class="px-4 py-3 text-left text-gray-700 font-medium">Return By</th>
-                  <th class="px-4 py-3 text-left text-gray-700 font-medium">Borrowed By</th>
-                  <th class="px-4 py-3 text-center text-gray-700 font-medium">Actions</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200">
-                <% @orders.each do |order| %>
-                  <tr class="hover:bg-gray-50">
-                    <td class="px-4 py-3"><%= truncate(order.description, length: 20) %></td>
-                    <td class="px-4 py-3"><%= order.quantity %></td>
-                    <td class="px-4 py-3 text-red-600"><%= order.created_at.strftime("%Y-%m-%d") %></td>
-                    <td class="px-4 py-3">Alex</td>
-                    <td class="px-4 py-3 text-center space-x-2">
-                      <button class="text-blue-500 hover:text-blue-700">
-                        <i class="fas fa-eye"></i>
-                      </button>
-                      <button class="text-red-500 hover:text-red-700">
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Members Table -->
-          <div class="overflow-x-auto">
-            <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-              Members <span class="text-sm ml-1 text-gray-500">(<%= @members.count %>)</span>
-            </h4>
-            <table class="w-full border border-gray-200 rounded-lg overflow-hidden text-sm md:text-base">
-              <thead class="bg-gray-50">
-                <tr>
-                  <th class="px-4 py-3 text-left text-gray-700 font-medium">Name</th>
-                  <th class="px-4 py-3 text-left text-gray-700 font-medium">Email</th>
-                  <th class="px-4 py-3 text-left text-gray-700 font-medium">Phone</th>
-                  <th class="px-4 py-3 text-center text-gray-700 font-medium">Actions</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200">
-                <% @members.each do |member| %>
-                  <tr class="hover:bg-gray-50">
-                    <td class="px-4 py-3"><%= member.name %></td>
-                    <td class="px-4 py-3"><%= member.email %></td>
-                    <td class="px-4 py-3"><%= member.phone_number %></td>
-                    <td class="px-4 py-3 text-center space-x-2">
-                      <button class="text-blue-500 hover:text-blue-700">
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      <button class="text-red-500 hover:text-red-700">
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-
-        </div>
-      </div>
-
+      <%= render "tables" %>
     </main>
   </div>
 </div>
