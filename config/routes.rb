@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
   resources :items
-  resources :inventory,  only: [:index]
+  resources :inventory
   resources :orders, only: [:index]
   resources :members
 end
