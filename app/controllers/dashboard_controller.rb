@@ -1,16 +1,11 @@
 class DashboardController < ApplicationController
-  def index
-    @items = Item.all
-    render json: @items.as_json(only: [:id, :name, :quantity, :status])
-  end
 
-  def counts
-    render json: {
-      tracked: Item.tracked.count,
-      available: Item.available.count,
-      unavailable: Item.unavailable.count,
-      expired: Item.expired.count
-    }
+  def index
+    @tracked_count     = Item.tracked.count
+    @available_count   = Item.available.count
+    @unavailable_count = Item.unavailable.count
+    @orders            = Order.all.order(created_at: :desc)
+    @expired_orders    = Order.expired.count
+    @members           = Member.all.order(created_at: :desc)
   end
 end
-
