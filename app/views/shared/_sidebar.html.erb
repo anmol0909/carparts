@@ -1,0 +1,26 @@
+<aside id="sidebar" class="w-64 bg-white shadow-md md:block hidden">
+  <div class="p-6">
+    <h1 class="text-xl font-bold text-gray-800">Car Parts</h1>
+  </div>
+  <nav class="mt-6 space-y-1">
+    <%= link_to dashboard_index_path, class: "flex items-center px-6 py-2 #{current_page?(dashboard_index_path) ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
+      <i class="fas fa-home mr-3"></i> Home
+    <% end %>
+
+    <%= link_to inventory_index_path, class: "flex items-center px-6 py-2 #{current_page?(inventory_index_path) ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
+      <i class="fas fa-boxes mr-3"></i> Check Inventory
+    <% end %>
+
+    <%= link_to orders_path, class: "flex items-center px-6 py-2 #{current_page?(orders_path) ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
+      <i class="fas fa-history mr-3"></i> Past Orders
+    <% end %>
+
+    <%= link_to new_item_path, class: "flex items-center px-6 py-2 #{current_page?(new_item_path) ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
+      <i class="fas fa-plus-circle mr-3"></i> Add Item
+    <% end %>
+
+    <%= link_to new_member_path, class: "flex items-center px-6 py-2 #{current_page?(new_member_path) ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
+      <i class="fas fa-user-plus mr-3"></i> Add Member
+    <% end %>
+  </nav>
+</aside>

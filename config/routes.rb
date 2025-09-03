@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   
   root "dashboard#index"
+
+  resources :dashboard, only: [:index]
+  resources :items
+  resources :inventory,  only: [:index, :edit, :destroy]
+  resources :orders, only: [:index, :show]
+  resources :members
 end
