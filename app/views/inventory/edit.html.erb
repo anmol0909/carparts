@@ -14,17 +14,17 @@
             <%= form_with(model: @item, url: inventory_path(@item), local: true, method: :patch, class: "space-y-6") do |form| %>
               <div>
                 <%= form.label :name, class: "block text-sm font-medium text-gray-700" %>
-                <%= form.text_field :name, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm" %>
+                <%= form.text_field :name, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" %>
               </div>
 
               <div>
                 <%= form.label :status, class: "block text-sm font-medium text-gray-700" %>
-                <%= form.select :status, Item::STATUSES, {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm" %>
+                <%= form.select :status, Item::STATUSES, {}, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" %>
               </div>
 
               <div>
                 <%= form.label :quantity, class: "block text-sm font-medium text-gray-700" %>
-                <%= form.number_field :quantity, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm" %>
+                <%= form.number_field :quantity, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" %>
               </div>
 
               <div class="flex space-x-3">
