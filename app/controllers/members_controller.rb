@@ -3,6 +3,12 @@ class MembersController < ApplicationController
 
   def index
     @members = Member.all.order(created_at: :desc)
+
+    if params[:q].present?
+      query = params[:q].strip
+      @members = @members.where("name ILIKE ? OR email ILIKE ? OR phone_number ILIKE ?", 
+                                "%#{query}%", "%#{query}%", "%#{query}%")
+    end
   end
 
   def show

@@ -2,7 +2,12 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all.order(created_at: :desc)
+    @items = Item.order(created_at: :desc)
+
+    if params[:q].present?
+      query = params[:q].strip
+      @items = @items.where("name ILIKE ? OR status ILIKE ?", "%#{query}%", "%#{query}%")
+    end
   end
 
   def show

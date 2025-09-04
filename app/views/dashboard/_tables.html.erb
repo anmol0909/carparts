@@ -40,6 +40,9 @@
           <% end %>
         </tbody>
       </table>
+      <% if @orders.empty? && params[:q].present? %>
+        <p class="text-center text-gray-600 mt-4">No orders found for "<%= params[:q] %>"</p>
+      <% end %>
       <div class="mr-4 text-end mt-2">
         <%= link_to "See More", orders_path, class: "inline-block px-4 py-1 text-sm font-medium text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700" %>
       </div>
@@ -82,6 +85,9 @@
           <% end %>
         </tbody>
       </table>
+      <% if @members.empty? && params[:q].present? %>
+        <p class="text-center text-gray-600 mt-4">No items found for "<%= params[:q] %>"</p>
+      <% end %>
 
       <div class="mr-4 text-end mt-2">
         <%= link_to "See More", members_path, class: "inline-block px-4 py-1 text-sm font-medium text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700" %>

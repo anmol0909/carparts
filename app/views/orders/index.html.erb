@@ -46,6 +46,9 @@
               <% end %>
             </tbody>
           </table>
+          <% if @orders.empty? && params[:q].present? %>
+            <p class="text-center text-gray-600 mt-4">No items found for "<%= params[:q] %>"</p>
+          <% end %>
         </div>
       </div>
     </main>

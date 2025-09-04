@@ -3,6 +3,12 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.includes(:item, :member).order(created_at: :desc)
+    
+    if params[:q].present?
+      query = params[:q].strip
+      @orders = @orders.where("borrowed_by ILIKE ? OR status ILIKE ? OR description ILIKE ?", 
+                              "%#{query}%", "%#{query}%", "%#{query}%")
+    end
   end
 
   def show
