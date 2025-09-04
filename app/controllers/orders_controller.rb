@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:destroy, :show]
 
   def index
-    @orders = Order.includes(:item, :member).all
+    @orders = Order.includes(:item, :member).order(created_at: :desc)
   end
 
   def show

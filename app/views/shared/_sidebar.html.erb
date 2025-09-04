@@ -3,15 +3,15 @@
     <h1 class="text-xl font-bold text-gray-800">Car Parts</h1>
   </div>
   <nav class="mt-6 space-y-1">
-    <%= link_to dashboard_index_path, class: "flex items-center px-6 py-2 #{current_page?(dashboard_index_path) ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
+    <%= link_to dashboard_index_path, class: "flex items-center px-6 py-2 #{controller_name == 'dashboard' ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
       <i class="fas fa-home mr-3"></i> Home
     <% end %>
 
-    <%= link_to items_path, class: "flex items-center px-6 py-2 #{current_page?(items_path) ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
+    <%= link_to items_path, class: "flex items-center px-6 py-2 #{(controller_name == 'items' && !current_page?(new_item_path)) ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
       <i class="fas fa-boxes mr-3"></i> Check Inventory
     <% end %>
 
-    <%= link_to orders_path, class: "flex items-center px-6 py-2 #{current_page?(orders_path) ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
+    <%= link_to orders_path, class: "flex items-center px-6 py-2 #{controller_name == 'orders' ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
       <i class="fas fa-history mr-3"></i> Past Orders
     <% end %>
 
@@ -19,7 +19,7 @@
       <i class="fas fa-plus-circle mr-3"></i> Add Item
     <% end %>
 
-    <%= link_to new_member_path, class: "flex items-center px-6 py-2 #{current_page?(new_member_path) ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
+    <%= link_to new_member_path, class: "flex items-center px-6 py-2 #{controller_name == 'members' ? 'bg-gray-300 font-semibold' : 'text-gray-700 hover:bg-gray-200'}" do %>
       <i class="fas fa-user-plus mr-3"></i> Add Member
     <% end %>
 

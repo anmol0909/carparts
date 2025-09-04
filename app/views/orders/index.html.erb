@@ -21,7 +21,7 @@
                 <th class="px-6 py-3 text-left text-sm font-semibold">Status</th>
                 <th class="px-6 py-3 text-left text-sm font-semibold">Description</th>
                 <th class="px-6 py-3 text-left text-sm font-semibold">Created At</th>
-                <th class="px-6 py-3 text-left text-sm font-semibold">Action</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold flex justify-center">Action</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
@@ -37,8 +37,10 @@
                   <td class="px-6 py-4"><%= order.description %></td>
                   <td class="px-6 py-4"><%= order.created_at.strftime("%d %b %Y") %></td>
                   <td class="px-6 py-3 space-x-1">
-                    <%= link_to "Show", order_path(order), class: "inline-block bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 transition text-sm" %>
-                    <%= button_to "Delete", order_path(order), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "inline-block bg-red-600 text-white px-1 py-1 rounded-md hover:bg-red-700 transition text-sm" %>                
+                    <div class="flex space-x-2">
+                      <%= link_to "Show", order_path(order), class: "inline-block bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 transition text-sm" %>
+                      <%= button_to "Delete", order_path(order), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "inline-block bg-red-600 text-white px-1 py-1 rounded-md hover:bg-red-700 transition text-sm" %>                
+                    </div>
                   </td>
                 </tr>
               <% end %>

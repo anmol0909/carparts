@@ -8,23 +8,32 @@
     <i class="fas fa-bars text-xl"></i>
   </button>
 
-  <% heading = if current_page?(dashboard_index_path)
-                "Dashboard Panel"
-              elsif current_page?(items_path)
-                "Inventory Management"
-              elsif current_page?(items_path)
-                "Items List"
-              elsif current_page?(orders_path)
-                "Orders History"
-              elsif current_page?(members_path)
-                "Members List"
-              elsif current_page?(new_item_path)
-                "Add New Item"
-              elsif current_page?(new_member_path)
-                "Add New Member"
-              else
-                "Dashboard Panel"
-              end %>
+  <% heading =
+    if controller_name == "dashboard" && action_name == "index"
+      "Dashboard Panel"
+    elsif controller_name == "items" && action_name == "index"
+      "Inventory Management"
+    elsif controller_name == "items" && action_name == "new"
+      "Add New Item"
+    elsif controller_name == "items" && action_name == "edit"
+      "Edit Item"
+    elsif controller_name == "items" && action_name == "show"
+      "Item Details"
+    elsif controller_name == "orders" && action_name == "index"
+      "Orders History"
+    elsif controller_name == "orders" && action_name == "show"
+      "Order Details"
+    elsif controller_name == "members" && action_name == "index"
+      "Members List"
+    elsif controller_name == "members" && action_name == "new"
+      "Add New Member"
+    elsif controller_name == "members" && action_name == "edit"
+      "Edit Member"
+    elsif controller_name == "members" && action_name == "show"
+      "Member Details"
+    else
+      "Dashboard Panel"
+    end %>
 
   <h2 class="text-lg font-semibold text-gray-800"><%= heading %></h2>
 
