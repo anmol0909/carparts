@@ -32,7 +32,7 @@
                     <td class="px-6 py-4"><%= member.phone_number %></td>
                     <td class="px-6 py-3 space-x-2">
                       <%= link_to "Edit", edit_member_path(member), class: "inline-block bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 transition text-sm" %>
-                      <%= link_to "Delete", member_path(member), method: :delete, data: { confirm: "Are you sure?" }, class: "inline-block bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 transition text-sm" %>
+                      <%= button_to "Delete", member_path(member), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "inline-block bg-red-600 text-white px-1 py-1 rounded-md hover:bg-red-700 transition text-sm" %>
                     </td>
                   </tr>
                 <% end %>
