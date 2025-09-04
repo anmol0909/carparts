@@ -1,8 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.all.order(created_at: :desc)
+  end
+
+  def show
   end
 
   def new
@@ -14,15 +17,18 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to items_path, notice: "Item created successfully."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
   end
 
   def update
     if @item.update(item_params)
       redirect_to items_path, notice: "Item updated successfully."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -38,6 +44,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :quantity, :status)
+    params.require(:item).permit(:name, :status, :quantity, :price)
   end
 end

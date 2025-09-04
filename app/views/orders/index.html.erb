@@ -8,43 +8,42 @@
 
     <main class="p-4 md:p-6">
       <div class="w-full">
-        <div class="max-w-5xl mx-auto mt-10">
-          <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold">Past Orders</h1>
-          </div>
-
-          <div class="overflow-x-auto bg-white rounded shadow">
-            <table class="w-full border-gray-200 shadow-lg rounded-lg overflow-hidden">
-              <thead class="bg-gray-100 text-black">
+        <div class="overflow-x-auto bg-white rounded shadow">
+          <table class="w-full border-gray-200 shadow-lg rounded-lg overflow-hidden">
+            <thead class="bg-gray-100 text-black">
+              <tr>
+                <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold">Item</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold">Member</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold">Quantity</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold">Return By</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold">Borrowed By</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold">Status</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold">Description</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold">Created At</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <% @orders.each do |order| %>
                 <tr>
-                  <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
-                  <th class="px-6 py-3 text-left text-sm font-semibold">Item</th>
-                  <th class="px-6 py-3 text-left text-sm font-semibold">Member</th>
-                  <th class="px-6 py-3 text-left text-sm font-semibold">Quantity</th>
-                  <th class="px-6 py-3 text-left text-sm font-semibold">Return By</th>
-                  <th class="px-6 py-3 text-left text-sm font-semibold">Borrowed By</th>
-                  <th class="px-6 py-3 text-left text-sm font-semibold">Status</th>
-                  <th class="px-6 py-3 text-left text-sm font-semibold">Description</th>
-                  <th class="px-6 py-3 text-left text-sm font-semibold">Created At</th>
+                  <td class="px-6 py-4"><%= order.id %></td>
+                  <td class="px-6 py-4"><%= order.item.name %></td>
+                  <td class="px-6 py-4"><%= order.member.name %></td>
+                  <td class="px-6 py-4"><%= order.quantity %></td>
+                  <td class="px-6 py-4"><%= order.return_by %></td>
+                  <td class="px-6 py-4"><%= order.borrowed_by %></td>
+                  <td class="px-6 py-4"><%= order.status.capitalize %></td>
+                  <td class="px-6 py-4"><%= order.description %></td>
+                  <td class="px-6 py-4"><%= order.created_at.strftime("%d %b %Y") %></td>
+                  <td class="px-6 py-3 space-x-1">
+                    <%= link_to "Show", order_path(order), class: "inline-block bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 transition text-sm" %>
+                    <%= button_to "Delete", order_path(order), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "inline-block bg-red-600 text-white px-1 py-1 rounded-md hover:bg-red-700 transition text-sm" %>                
+                  </td>
                 </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200">
-                <% @orders.each do |order| %>
-                  <tr>
-                    <td class="px-6 py-4"><%= order.id %></td>
-                    <td class="px-6 py-4"><%= order.item.name %></td>
-                    <td class="px-6 py-4"><%= order.member.name %></td>
-                    <td class="px-6 py-4"><%= order.quantity %></td>
-                    <td class="px-6 py-4"><%= order.return_by %></td>
-                    <td class="px-6 py-4"><%= order.borrowed_by %></td>
-                    <td class="px-6 py-4"><%= order.status.capitalize %></td>
-                    <td class="px-6 py-4"><%= order.description %></td>
-                    <td class="px-6 py-4"><%= order.created_at.strftime("%d %b %Y") %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
     </main>

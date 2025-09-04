@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:destroy]
+  before_action :set_order, only: [:destroy, :show]
 
   def index
     @orders = Order.includes(:item, :member).all
