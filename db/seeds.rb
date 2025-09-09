@@ -23,7 +23,7 @@ members = 10.times.map do
   Member.create!(
     name: Faker::Name.name,
     email: Faker::Internet.unique.email,
-    phone_number: Faker::PhoneNumber.cell_phone
+    phone_number: Faker::Number.number(digits: 10)
   )
 end
 puts "✅ Created #{members.count} members"
